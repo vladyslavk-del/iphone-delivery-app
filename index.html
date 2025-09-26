@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Delivery</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at center, #2e005d 0%, #1a0033 100%);
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px; /* Wider for PC screens */
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh; /* Better fit for all screens */
+        }
+        
+        /* Section 1: Form */
+        #page-form {
+            text-align: center;
+            display: block; /* Show by default */
+            width: 100%;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+            width: 100%;
+        }
+        
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 18px 25px;
+            background-color: #330066;
+            border: 1px solid #6600cc;
+            border-radius: 12px;
+            color: #ffffff;
+            font-size: 18px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        input::placeholder {
+            color: #b366ff;
+            opacity: 1;
+        }
+        
+        input:focus {
+            border-color: #ff99ff;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            margin-top: 40px;
+            background: linear-gradient(to right, #ff3366, #ff8033);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 51, 102, 0.6);
+        }
+
+        /* Section 2: Result */
+        #page-result {
+            text-align: center;
+            display: none; /* Hide by default */
+            width: 100%;
+        }
+        
+        .result-text {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+        
+        .get-btn {
+            width: 80%;
+            max-width: 350px;
+            padding: 22px;
+            background: linear-gradient(to right, #ff3366, #cc0033);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 22px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+        }
+        
+        .get-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 51, 102, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Page 1: Form -->
+    <div id="page-form">
+        <h1>Phone Package Acquisition</h1>
+        
+        <div class="input-group">
+            <input type="text" id="name" placeholder="Name" required>
+        </div>
+        <div class="input-group">
+            <input type="number" id="age" placeholder="Your Age" required>
+        </div>
+        <div class="input-group">
+            <input type="text" id="address" placeholder="Delivery Address" required>
+        </div>
+        
+        <button class="submit-btn" onclick="showResultPage()">
+            SUBMIT
+        </button>
+    </div>
+
+    <!-- Page 2: Result -->
+    <div id="page-result">
+        <div class="result-text">
+            You got **iPhone 17 PRO MAX** in Bundle
+        </div>
+
+        <button class="get-btn" onclick="alert('Отлично! Теперь вы можете настроить действие для этой кнопки.')">
+            GET
+        </button>
+    </div>
+
+</div>
+
+<script>
+    function showResultPage() {
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        const address = document.getElementById('address').value;
+
+        if (name && age && address) {
+            document.getElementById('page-form').style.display = 'none';
+            document.getElementById('page-result').style.display = 'block';
+        } else {
+            alert('Пожалуйста, заполните все поля!');
+        }
+    }
+</script>
+
+</body>
+</html>
