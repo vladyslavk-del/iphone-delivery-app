@@ -102,12 +102,32 @@
             text-align: center;
             display: none; /* Hide by default */
             width: 100%;
+            /* position: relative; has been removed */
         }
         
+        .image-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto; 
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block; /* Removes extra space below image */
+            border-radius: 15px; /* Soften image corners */
+        }
+        
+        .result-content {
+            /* Positioning styles removed */
+            margin-top: 20px; /* Space between image and text restored */
+            text-align: center;
+        }
+
         .result-text {
             font-size: 24px;
             font-weight: 500;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             padding: 0 10px;
         }
         
@@ -124,6 +144,7 @@
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
             box-shadow: 0 5px 15px rgba(255, 51, 102, 0.4);
+            margin-top: 20px;
         }
         
         .get-btn:hover {
@@ -157,31 +178,30 @@
 
     <!-- Page 2: Result -->
     <div id="page-result">
-        <div class="result-text">
-            You got **iPhone 17 PRO MAX** in Bundle
+        <div class="image-container">
+            <img src="https://i.postimg.cc/3RPCq56g/i-Phone-17-Pro-Max-Concept-Art-PNG.png" alt="iPhone 17 Pro Max">
         </div>
-
-        <button class="get-btn" onclick="alert('Отлично! Теперь вы можете настроить действие для этой кнопки.')">
-            GET
-        </button>
+            
+        <div class="result-content">
+            <div class="result-text">
+                You got <strong>iPhone 17 PRO MAX</strong> in Bundle
+            </div>
+            <button class="get-btn" onclick="alert('Отлично! Теперь вы можете настроить действие для этой кнопки.')">
+                GET
+            </button>
+        </div>
     </div>
 
 </div>
 
 <script>
+    // This function now switches pages without checking the input fields.
     function showResultPage() {
-        const name = document.getElementById('name').value;
-        const age = document.getElementById('age').value;
-        const address = document.getElementById('address').value;
-
-        if (name && age && address) {
-            document.getElementById('page-form').style.display = 'none';
-            document.getElementById('page-result').style.display = 'block';
-        } else {
-            alert('Пожалуйста, заполните все поля!');
-        }
+        document.getElementById('page-form').style.display = 'none';
+        document.getElementById('page-result').style.display = 'block';
     }
 </script>
 
 </body>
 </html>
+
